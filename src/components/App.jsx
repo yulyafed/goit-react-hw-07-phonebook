@@ -11,7 +11,7 @@ export default function App() {
 
   const dispatch = useDispatch();
 
-  const { items, isLoading, error } = useSelector(selectors.getContacts);
+  const { isLoading, error } = useSelector(selectors.getContacts);
 
   useEffect(() => dispatch(operations.fetchContacts()), [dispatch]);
 
@@ -23,7 +23,7 @@ export default function App() {
       <ContactsFilter />
       {isLoading && <b>Loading tasks...</b>}
       {error && <b>{error}</b>}
-      <ContactsList />
+      <ContactsList /> 
     </>
   );
 }

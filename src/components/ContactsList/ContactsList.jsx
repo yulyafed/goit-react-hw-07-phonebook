@@ -24,18 +24,18 @@ export const ContactsList = () => {
    
   return (
     <>
-      <List>
-        {getVisibleContacts().map(contact => (
-          <Item key={contact.id}>
-            <Text>
-              {contact.name} : {contact.phone}
-            </Text>
-            <Button onClick={() => handleDelete(contact.id)}>
-              Delete
-            </Button>
-          </Item>
-        ))}
-      </List>
+      {contacts && (
+        <List>
+          {getVisibleContacts().map(contact => (
+            <Item key={contact.id}>
+              <Text>
+                {contact.name} : {contact.phone}
+              </Text>
+              <Button onClick={() => handleDelete(contact.id)}>Delete</Button>
+            </Item>
+          ))}
+        </List>
+      )}
     </>
   );
 };
