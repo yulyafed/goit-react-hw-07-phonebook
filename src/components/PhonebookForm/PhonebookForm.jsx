@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Button, Input, Label, FormPhone } from './PhonebookForm.styled';
-import { addContact } from 'redux/contactsSlice';
+import * as operations from 'redux/operations';
 
 export const PhonebookForm = () => {
 
@@ -11,7 +11,7 @@ export const PhonebookForm = () => {
     e.preventDefault();
     const form = e.currentTarget;
     
-    dispatch(addContact(form.elements.name.value, form.elements.number.value));
+    dispatch(operations.addContact(form.elements.name.value, form.elements.number.value));
 
     form.reset();
   };

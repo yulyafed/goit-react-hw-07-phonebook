@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { List, Item, Text, Button } from './ContactsList.styled';
-import { deleteContact } from 'redux/contactsSlice';
 import * as selectors from 'redux/selectors';
 import * as operations from 'redux/operations';
 import { useEffect } from 'react';
@@ -25,8 +24,11 @@ export const ContactsList = () => {
 
     return contacts;
   };
-
-  const handleDelete = id => dispatch(deleteContact(id));
+ 
+  // const handleDelete = useEffect(
+  //   id => dispatch(operations.deleteContact(id)),
+  //   [dispatch]
+  // );
 
   return (
     <>
@@ -36,7 +38,9 @@ export const ContactsList = () => {
             <Text>
               {contact.name} : {contact.phone}
             </Text>
-            <Button onClick={() => handleDelete(contact.id)}>Delete</Button>
+            <Button onClick={() => operations.deleteContact(contact.id)}>
+              Delete
+            </Button>
           </Item>
         ))}
       </List>
