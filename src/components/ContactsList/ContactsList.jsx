@@ -25,10 +25,8 @@ export const ContactsList = () => {
     return contacts;
   };
  
-  // const handleDelete = useEffect(
-  //   id => dispatch(operations.deleteContact(id)),
-  //   [dispatch]
-  // );
+  const handleDelete = id => dispatch(operations.deleteContact(id))
+   
 
   return (
     <>
@@ -38,7 +36,7 @@ export const ContactsList = () => {
             <Text>
               {contact.name} : {contact.phone}
             </Text>
-            <Button onClick={() => operations.deleteContact(contact.id)}>
+            <Button onClick={() => handleDelete(contact.id)}>
               Delete
             </Button>
           </Item>
