@@ -11,8 +11,7 @@ export const ContactsList = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(
-    () => dispatch(operations.fetchContacts()), [dispatch])
+  useEffect(() => dispatch(operations.fetchContacts()), [dispatch])
   
 
   const getVisibleContacts = () => {
@@ -27,7 +26,6 @@ export const ContactsList = () => {
  
   const handleDelete = id => dispatch(operations.deleteContact(id))
    
-
   return (
     <>
       <List>
