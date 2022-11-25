@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { List, Item, Text, Button } from './ContactsList.styled';
 import * as selectors from 'redux/selectors';
 import * as operations from 'redux/operations';
 
 export const ContactsList = () => {
-
   const dispatch = useDispatch();
 
   const contacts = useSelector(selectors.getContacts);
   const filter = useSelector(selectors.getFilter);
 
-      const getVisibleContacts = () => {
+  const getVisibleContacts = () => {
     if (filter && filter.length > 0) {
       return contacts.filter(contact =>
         contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
@@ -19,9 +19,17 @@ export const ContactsList = () => {
 
     return contacts;
   };
- 
-  const handleDelete = id => dispatch(operations.deleteContact(id))
-   
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     // You can await here
+  //     const response = await MyAPI.getData(someId);
+  //     // ...
+  //   }
+  //   fetchData();
+  // }, [someId]); // Or [] if effect doesn't need props or state
+
+    const handleDelete = id => dispatch(operations.deleteContact(id));
+
   return (
     <>
       {contacts && (
@@ -38,6 +46,6 @@ export const ContactsList = () => {
       )}
     </>
   );
-};
+};;
 
 
