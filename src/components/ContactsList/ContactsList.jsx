@@ -19,16 +19,8 @@ export const ContactsList = () => {
 
     return contacts;
   };
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     // You can await here
-  //     const response = await MyAPI.getData(someId);
-  //     // ...
-  //   }
-  //   fetchData();
-  // }, [someId]); // Or [] if effect doesn't need props or state
-
-    const handleDelete = id => dispatch(operations.deleteContact(id));
+ 
+  const handleDelete = id => dispatch(operations.deleteContact(id));
 
   return (
     <>
