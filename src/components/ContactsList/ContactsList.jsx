@@ -20,22 +20,27 @@ export const ContactsList = () => {
     return contacts;
   };
  
+  // useEffect(id => dispatch(operations.deleteContact(id)), [dispatch]);
   const handleDelete = id => dispatch(operations.deleteContact(id));
 
   return (
     <>
-      {contacts && (
-        <List>
-          {getVisibleContacts().map(contact => (
-            <Item key={contact.id}>
-              <Text>
-                {contact.name} : {contact.phone}
-              </Text>
-              <Button onClick={() => handleDelete(contact.id)}>Delete</Button>
-            </Item>
-          ))}
-        </List>
-      )}
+      {contacts.length > 0 && (
+          <List>
+            {getVisibleContacts().map(contact => (
+              <Item key={contact.id}>
+                <Text>
+                  {contact.name} : {contact.phone}
+                </Text>
+                <Button
+                  onClick={() => handleDelete(contact.id)}
+                >
+                  Delete
+                </Button>
+              </Item>
+            ))}
+          </List>
+        )}
     </>
   );
 };;
